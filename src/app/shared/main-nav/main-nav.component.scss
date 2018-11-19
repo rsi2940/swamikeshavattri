@@ -83,3 +83,12 @@ mat-nav-list.sidebar-nav-list .router-link-active {
   position: relative;
   left: 2%;
 }
+// toolbar icon
+.toolbar.toolbar-iconImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .toolbar-iconImage {
+    padding-top: 25px;
+  }
+}

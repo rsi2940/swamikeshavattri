@@ -20,7 +20,7 @@ export class PostDetailComponent implements OnInit {
   para1 = '';
   para2 = '';
   para3 = '';
-  buttonText = 'लेख शुरक्षित गर्नुहोस्';
+  buttonText = 'लेख सुरक्षित गर्नुहोस्';
   showPara2 = false;
   showPara3 = false;
   constructor(
@@ -51,6 +51,8 @@ export class PostDetailComponent implements OnInit {
     };
     const id = this.route.snapshot.paramMap.get('id');
     this.postService.update(id, formData);
+    this.buttonText = 'लेख सुरक्षित हुँदै...';
+    setTimeout(() => (this.buttonText = 'लेख सुरक्षित गर्नुहोस्'), 3000);
     this.editing = false;
   }
   delete() {

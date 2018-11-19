@@ -20,7 +20,7 @@ export class PostDashboardComponent implements OnInit {
   para1 = '';
   para2 = '';
   para3 = '';
-  buttonText = 'लेख शुरक्षित गर्नुहोस्';
+  buttonText = 'लेख सुरक्षित गर्नुहोस्';
   showPara2 = false;
   showPara3 = false;
   constructor(private auth: AuthService, private postService: PostService) {
@@ -53,8 +53,8 @@ export class PostDashboardComponent implements OnInit {
     this.para1 = '';
     this.para2 = '';
     this.para3 = '';
-    this.buttonText = 'लेख शुरक्षित हुँदै...';
-    setTimeout(() => (this.buttonText = 'लेख शुरक्षित गर्नुहोस्'), 3000);
+    this.buttonText = 'लेख सुरक्षित हुँदै...';
+    setTimeout(() => (this.buttonText = 'लेख सुरक्षित गर्नुहोस्'), 3000);
   }
   keyPress($event) {
     // console.log($event);

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
+  constructor(private router: Router) {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  async scrollMeHome(element = 'home') {
+    const elementId = document.getElementById(element);
+    if (elementId) {
+      elementId.scrollIntoView({
+        behavior: 'smooth'
+      });
+    } else {
+      await this.router.navigate(['']);
+      await setTimeout(this.scrollMeHome, 500);
+    }
   }
-
 }
