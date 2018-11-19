@@ -1,0 +1,66 @@
+.banner {
+  min-height: 15em;
+  background: url(../../../assets/images/radhaKrishnaGopal.jpg) top right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  span {
+    color: white;
+    text-shadow: 0 0 15px black;
+  }
+}
+.postsTitle {
+  padding: 6em 1.5em 1.5em;
+  text-align: center;
+  font-size: 2.1em;
+}
+section {
+  display: grid;
+  grid-gap: 25px;
+  width: 90vw;
+  margin: 2em auto;
+  @media screen and (min-width: 40em) {
+    // width: 80vw;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+  }
+  // @media screen and (min-width: 64em) {
+  //   // width: 900px;
+  //   grid-template-columns: 1fr 1fr 1fr;
+  // }
+}
+.mat-card-content {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.2em;
+  align-self: end;
+}
+.mat-card {
+  display: grid;
+  position: initial;
+}
+.wrapper {
+  display: grid;
+  cursor: pointer;
+}
+.mat-card:hover {
+  box-shadow: 5px 5px 5px #efe3de;
+}
+h1 {
+  font-size: 2.5 em;
+}
+h4 {
+  text-align: right;
+}
+.para1 p {
+  text-align: left;
+  line-height: 1.2;
+}
+.para1 {
+  padding-top: 1em;
+  min-height: stretch;
+}
+.header {
+  max-height: 8em;
+  border-bottom: 0.5px solid brown;
+}

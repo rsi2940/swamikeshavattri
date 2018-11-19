@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span routerLink="/blog"
+          class="title">स्वामी केशव अत्रि</span>
+    <!-- This fills the remaining space of the current row -->
+    <span class="space"></span>
+    <div *ngIf="auth.afAuth.authState | async as user; else showLogin">
+      <button mat-raised-button
+              color="accent"
+              routerLink="/dashboard">नयाँ स्तम्भ</button>
+      <button mat-raised-button
+              (click)="auth.logout()">लग आउट</button>
+    </div>
+    <ng-template #showLogin>
+      <button mat-raised-button
+              (click)="auth.login()">लगइन</button></ng-template>
+  </mat-toolbar-row>
+</mat-toolbar>

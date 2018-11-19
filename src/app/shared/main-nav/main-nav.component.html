@@ -1,0 +1,114 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer
+               class="sidenav"
+               [ngClass]="{hidden: !(isHandset$ | async)}"
+               fixedInViewport="true"
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="primary"
+                 (click)="drawer.toggle()"
+                 class="toolbar"><a (click)="scrollMeHome('home')">गृहपृष्ठ</a></mat-toolbar>
+    <mat-nav-list class="sidebar-nav-list">
+      <a mat-list-item
+         (click)="drawer.toggle()"
+         routerLink="/blog"
+         routerLinkActive="router-link-active">लेखहरु</a>
+      <a mat-list-item
+         [matMenuTriggerFor]="menu1"
+         routerLinkActive="router-link-active">संग्रह <i class="material-icons">
+          arrow_drop_down
+        </i></a>
+      <mat-menu #menu1="matMenu">
+        <a mat-menu-item
+           (click)="drawer.toggle()"
+           routerLink="/videos"
+           routerLinkActive="router-link-active">भिडियोहरु</a>
+        <a (click)="drawer.toggle()"
+           mat-menu-item
+           routerLinkActive="router-link-active">Item 2</a>
+      </mat-menu>
+      <a mat-list-item
+         (click)="drawer.toggle()"
+         (click)="scrollMeFeedback('feedback')"
+         routerLinkActive="router-link-active">प्रतिक्रिया</a>
+      <a mat-list-item
+         (click)="drawer.toggle()"
+         routerLinkActive="router-link-active">
+        <!-- link 3 text here -->
+      </a>
+      <a (click)="drawer.toggle()"
+         *ngIf="auth.user | async as user"
+         class="nav-button button1">
+        <button mat-raised-button
+                *ngIf="!(user.allowWrite); else showMember"> {{user.displayName | uppercase}}</button> </a>
+      <a (click)="drawer.toggle()"
+         *ngIf="auth.user | async as user; else showLoginSidebar"
+         class="nav-button button2">
+        <button mat-raised-button
+                (click)="auth.logout()">लग आउट</button>
+      </a>
+      <ng-template #showMember>
+        <button mat-raised-button
+                color="accent"
+                routerLink="/dashboard">नयाँ स्तम्भ</button></ng-template>
+      <ng-template #showLoginSidebar>
+        <a (click)="drawer.toggle()"
+           class="nav-button button2">
+          <button mat-raised-button
+                  (click)="auth.login()">लगइन</button></a></ng-template>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button"
+              aria-label="Toggle sidenav"
+              mat-icon-button
+              (click)="drawer.toggle()"
+              *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu
+        </mat-icon>
+      </button><span class="space"
+            [ngClass]="{hidden: !(isHandset$ | async)}"></span>
+      <span class="title"> <a (click)="scrollMeHome('home')">स्वामी केशव अत्रि</a></span>
+      <span class="space"></span>
+      <mat-nav-list class="header-nav-list"
+                    [ngClass]="{hidden: (isHandset$ | async)}">
+        <a mat-button
+           routerLink="/blog"
+           routerLinkActive="router-link-active">लेखहरु</a>
+        <a mat-button
+           [matMenuTriggerFor]="menu"
+           class="collection">संग्रह <i class="material-icons">
+            arrow_drop_down
+          </i></a>
+        <mat-menu #menu="matMenu">
+          <a mat-menu-item
+             routerLink="/videos"
+             routerLinkActive="router-link-active">भिडियोहरु</a>
+          <a mat-menu-item
+             routerLinkActive="router-link-active">Item 2</a>
+        </mat-menu>
+        <a mat-button
+           (click)="scrollMeFeedback('feedback')"
+           routerLinkActive="router-link-active">प्रतिक्रिया</a>
+        <a *ngIf="auth.user | async as user"
+           class="top-nav-button">
+          <button mat-raised-button
+                  *ngIf="!(user.allowWrite); else showMember">{{user.displayName | uppercase}}</button> </a>
+
+        <a *ngIf="auth.user | async as user; else showLogin"
+           class="top-nav-button">
+          <button mat-raised-button
+                  (click)="auth.logout()">लग आउट</button>
+        </a>
+        <ng-template #showLogin>
+          <a class="top-nav-button">
+            <button mat-raised-button
+                    (click)="auth.login()">लगइन</button></a></ng-template>
+      </mat-nav-list>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

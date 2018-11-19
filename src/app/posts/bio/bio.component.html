@@ -1,0 +1,72 @@
+<div id="home"></div>
+<section class="banner">
+
+  <div class="bannerLeft">
+    this is left Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea atque repellat, et esse qui fuga
+    reprehenderit? Magnam, velit et qui nemo quidem assumenda distinctio nisi eaque beatae. Accusamus, molestias sequi?
+  </div>
+  <div class="bannerRight">
+    this is right
+  </div>
+
+</section>
+<main>
+  <section class="latestPosts">
+    <h2 class="latestPost-title"><span class="header-title-span">नयाँ स्तम्भहरु</span></h2>
+    <div class="latestPosts">
+      <div class="wrapper"
+           *ngFor="let post of posts$ | async">
+        <mat-card class="card"
+                  routerLink="blog/{{post.id}}">
+          <mat-card-header class="header">
+            <mat-card-title>
+              <h1><span>{{(post.title.length)>15 ? (post.title | slice:0:15)+'...': post.title}}</span></h1>
+            </mat-card-title>
+          </mat-card-header>
+
+          <mat-card-content class="author">
+            <h4><small *ngIf="post.author">{{post.author}}</small><br><small>{{post.published.toDate() | date}}</small></h4>
+          </mat-card-content>
+          <mat-card-content class="para1">
+            <p *ngIf="post.content.para1">{{(post.content.para1.length)>75 ? (post.content.para1 | slice:0:75)+'...':
+              post.content.para1}}</p>
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+
+    </div>
+    <div class="latestPost-button">
+      <button mat-raised-button
+              color="accent"
+              [routerLink]="['/blog']">थप स्तम्भहरु</button>
+    </div>
+  </section>
+
+
+  <section class="videos">
+    <h2 class="videoTitle"><span class="header-title-span">सत्संग</span></h2>
+    <div class="videoWrapper">
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/j2k8KoTMwHQ"
+                frameborder="0"
+                allowfullscreen></iframe>
+      </div>
+      <div class="video">
+        <!-- insert more Iframe -->
+      </div>
+      <div class="video">
+        <!-- insert more Iframe -->
+      </div>
+
+    </div>
+    <div class="videoTitle">
+      <button mat-raised-button
+              color="accent"
+              [routerLink]="['/videos']">थप भिडियोहरु</button>
+
+    </div>
+
+  </section>
+</main>
+<app-feedback></app-feedback>

@@ -1,0 +1,77 @@
+section.feedback {
+  display: grid;
+
+  @media screen and (min-width: 48em) {
+    // justify-content: center;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.portrait {
+  background: url(../../../assets/bgImg/swamiji0.jpg) center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  display: none;
+  @media screen and (min-width: 48em) {
+    display: block;
+  }
+}
+.feedbackForm {
+  background-color: #f1f1bf;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1em;
+  padding-bottom: 3em;
+  .feedbackWrapper {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+.feedbackTitle {
+  padding: 1em;
+  padding-bottom: 1em;
+  text-align: center;
+  font-size: 2.1em;
+}
+// tel inpput styles
+
+.tel-input-container {
+  display: flex;
+}
+
+.tel-input-element {
+  border: none;
+  background: none;
+  padding: 0;
+  outline: none;
+  font: inherit;
+  text-align: center;
+}
+
+.tel-input-spacer {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+:host.floating .tel-input-spacer {
+  opacity: 1;
+}
+mat-form-field {
+  margin-bottom: 1.2em;
+}
+mat-form-field input,
+mat-form-field textarea {
+  font-size: 20px;
+}
+mat-form-field {
+  line-height: 1.5;
+  width: 100%;
+}
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+mat-error mat-icon:hover {
+  cursor: pointer;
+}

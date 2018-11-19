@@ -1,0 +1,134 @@
+<ng-container *ngIf="post">
+  <section class="postDetail"
+           [hidden]="editing">
+    <div class="wrapper">
+      <mat-card class="card">
+        <mat-card-header class="header">
+          <mat-card-title>
+            <h1><span>{{post.title}}</span></h1>
+            <h4><small *ngIf="post.author">{{post.author}}, </small>
+              <small>{{post.published.seconds * 1000 | date}}</small></h4>
+          </mat-card-title>
+
+        </mat-card-header>
+        <hr />
+        <mat-card-content>
+          <div class="content">
+            <p>
+              {{post.content.para1}}
+            </p>
+            <p *ngIf="post.content.para2">
+              {{post.content.para2}}
+            </p>
+            <p *ngIf="post.content.para3">
+              {{post.content.para3}}
+            </p>
+          </div>
+        </mat-card-content>
+        <ng-container *ngIf="auth.user | async as user">
+          <mat-card-actions align="end"
+                            *ngIf="user.uid === post.authorId">
+            <button mat-icon-button
+                    color="accent"
+                    (click)="editing=true"
+                    title="समपादन">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button
+                    color="warn"
+                    (click)="delete() "
+                    title="मेटाउनु">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-card-actions>
+        </ng-container>
+      </mat-card>
+    </div>
+  </section>
+
+  <section class="postDetail"
+           [hidden]="!editing">
+    <div class="wrapper">
+      <mat-card class="card">
+        <mat-card-header class="header">
+          <mat-card-title>
+            <h2><span class="header-title-span">स्तम्भ सम्पादन गर्नुहोस्</span></h2>
+          </mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-content class="content">
+          <mat-form-field>
+            <input (keyup)="keyPress($event)"
+                   matInput
+                   placeholder="शिर्शक"
+                   [(ngModel)]="post.title">
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <textarea matInput
+                      placeholder="विवरण"
+                      [(ngModel)]="post.content.para1"
+                      rows=3></textarea>
+          </mat-form-field>
+          <br>
+          <mat-card-actions align="end">
+            <mat-icon class="action-icon"
+                      matTooltip="नयाँ पङ्ति"
+                      matTooltipPosition="after"
+                      color="accent"
+                      *ngIf="(!showPara2 || !post.content.para2)"
+                      (click)="addParagraph('two')">add_circle</mat-icon>
+          </mat-card-actions>
+          <br>
+          <mat-form-field *ngIf="(showPara2 || post.content.para2)">
+            <mat-card-actions align="end">
+              <mat-icon class="action-icon"
+                        matTooltip="पङ्ति मेटाउने"
+                        matTooltipPosition="after"
+                        color="warn"
+                        (click)="removeParagraph('two')">remove_circle</mat-icon>
+            </mat-card-actions>
+            <textarea matInput
+                      placeholder="दोस्रो पङ्ति"
+                      [(ngModel)]="post.content.para2"
+                      rows=5></textarea>
+          </mat-form-field>
+          <br>
+          <mat-card-actions align="end">
+            <mat-icon class="action-icon"
+                      matTooltip="नयाँ पङ्ति"
+                      matTooltipPosition="after"
+                      color="accent"
+                      *ngIf="((!showPara3&&showPara2) || (!post.content.para3&&post.content.para2))"
+                      (click)="addParagraph('three')">add_circle</mat-icon>
+          </mat-card-actions>
+          <br>
+          <mat-form-field *ngIf="(showPara3 || post.content.para3)">
+            <mat-card-actions align="end">
+              <mat-icon class="action-icon"
+                        matTooltip="पङ्ति मेटाउने"
+                        matTooltipPosition="after"
+                        color="warn"
+                        (click)="removeParagraph('three')">remove_circle</mat-icon>
+            </mat-card-actions>
+            <textarea matInput
+                      placeholder="तेस्रो पङ्ति"
+                      [(ngModel)]="post.content.para3"
+                      rows=5></textarea>
+          </mat-form-field>
+          <br>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button
+                  color="accent"
+                  (click)="updatePost()"
+                  [disabled]="!post.title || !post.content.para1">{{buttonText}}</button>
+          <button mat-raised-button
+                  color="warn"
+                  (click)="editing=false">रद्द गर्नुहोस्</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </section>
+</ng-container>

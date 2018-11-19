@@ -1,0 +1,25 @@
+<div class="banner">
+  <h2 class="postsTitle"><span class="header-title-span">स्तम्भहरु</span></h2>
+</div>
+<section>
+  <div class="wrapper"
+       *ngFor="let post of posts$ | async">
+    <mat-card class="card"
+              routerLink="{{post.id}}">
+      <mat-card-header class="header">
+        <mat-card-title>
+          <h1><span>{{(post.title.length)>25 ? (post.title | slice:0:25)+'...': post.title}}</span></h1>
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content class="author">
+        <h4><small *ngIf="post.author">{{post.author}}</small><br><small>{{post.published.toDate() | date}}</small></h4>
+      </mat-card-content>
+      <mat-card-content class="para1">
+        <p *ngIf="post.content.para1">{{(post.content.para1.length)>150 ? (post.content.para1 | slice:0:150)+'...':
+          post.content.para1}}</p>
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+</section>

@@ -1,0 +1,88 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$ngBlog-app-primary: mat-palette($mat-my-color, 600, 50, 700);
+$ngBlog-app-accent: mat-palette($mat-accent-color, A700, 800, 900);
+
+// The warn palette is optional (defaults to lime).
+$ngBlog-app-warn: mat-palette($mat-my-color, 800);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$ngBlog-app-theme: mat-light-theme(
+  $ngBlog-app-primary,
+  $ngBlog-app-accent,
+  $ngBlog-app-warn
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($ngBlog-app-theme);
+// theme.scss file in node modules folder should include these following codes
+// mat my color
+// $mat-my-color: (
+// 50: #7E1000,
+// 100: #7E1106,
+// 200: #7E1116,
+// 300: #7E1208,
+// 400: #7E1504,
+// 500: #7E1806,
+// 600: #7E1906,
+// 700: #7E1920,
+// 800: #7e1900,
+// 900: #7E191B,
+// A100: #C21807,
+// A200: #7E191B,
+// A400: #800000,
+// A700: #7C0A02,
+// contrast: (
+// 50: $dark-primary-text,
+// 100: $dark-primary-text,
+// 200: $dark-primary-text,
+// 300: $dark-primary-text,
+// 400: $dark-primary-text,
+// 500: $light-primary-text,
+// 600: $light-primary-text,
+// 700: $light-primary-text,
+// 800: $light-primary-text,
+// 900: $light-primary-text,
+// A100: $dark-primary-text,
+// A200: $light-primary-text,
+// A400: $light-primary-text,
+// A700: $light-primary-text,
+// )
+// );
+// mat accent color
+// $mat-accent-color: (
+// 50: #339800,
+// 100: #339811,
+// 200: #339822,
+// 300: #339844,
+// 400: #339855,
+// 500: #339888,
+// 600: #339900,
+// 700: #339911,
+// 800: #339922,
+// 900: #339944,
+// A100: #339955,
+// A200: #339933,
+// A400: #339966,
+// A700: #33cc99,
+// contrast: (
+// 50: $dark-primary-text,
+// 100: $dark-primary-text,
+// 200: $dark-primary-text,
+// 300: $dark-primary-text,
+// 400: $dark-primary-text,
+// 500: $light-primary-text,
+// 600: $light-primary-text,
+// 700: $light-primary-text,
+// 800: $light-primary-text,
+// 900: $light-primary-text,
+// A100: $dark-primary-text,
+// A200: $light-primary-text,
+// A400: $light-primary-text,
+// A700: $light-primary-text,
+// )
+// );

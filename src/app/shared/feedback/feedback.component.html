@@ -1,0 +1,58 @@
+<section class="feedback">
+
+  <div class="portrait">
+
+  </div>
+  <div class="feedbackForm"
+       id="feedback">
+
+    <div class="feedbackWrapper">
+      <div class="feedback">
+        <h2 class="feedbackTitle"> <span class="feedbackTitleSpan">प्रतिक्रिया</span></h2>
+      </div>
+      <mat-form-field>
+        <input matInput
+               placeholder="पुरा नाम"
+               [formControl]="name"
+               required>
+        <mat-error *ngIf="name.invalid">{{getNameErrorText()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput
+               placeholder="इमेल"
+               [formControl]="email">
+        <mat-error *ngIf="email.invalid">{{getEmailErrorText()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput
+               minlength="10"
+               maxlength="15"
+               placeholder="फोन नम्वर"
+               [formControl]="phone"
+               required>
+        <mat-error *ngIf="phone.invalid">{{getPhoneErrorText()}}
+          <mat-icon matTooltip="मान्य फर्म्याट : 555-555-5555, +1 555-555-5555, +15555555555 अथवा 5555555555"
+                    matTooltipPosition="after">info</mat-icon>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field [ngClass]="{giveMarginTop : phone.invalid}">
+        <textarea matInput
+                  placeholder="प्रतिक्रिया"
+                  [formControl]="message"
+                  required
+                  rows='5'></textarea>
+        <mat-error *ngIf="message.invalid">{{getMessageErrorText()}}</mat-error>
+      </mat-form-field>
+      <div class="buttons">
+
+        <button mat-raised-button
+                (click)="submitForm()"
+                color="accent"
+                [disabled]="message.invalid||email.invalid||name.invalid||phone.invalid">{{buttonText}}</button>
+        <button mat-raised-button
+                (click)="clearForm()"
+                color="warn">रद्द गर्नुहोस्</button>
+      </div>
+    </div>
+  </div>
+</section>
