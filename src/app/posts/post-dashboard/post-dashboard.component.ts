@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { AuthService, User } from '../../core/auth.service';
+import { AuthService } from '../../core/auth.service';
 import { PostService } from '../post.service';
 
 @Component({

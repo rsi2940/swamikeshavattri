@@ -32,7 +32,7 @@ export class PostDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getPost();
-    console.log(this.auth.currentUserId);
+   // console.log(this.auth.currentUserId);
   }
   getPost() {
     const id = this.route.snapshot.paramMap.get('id');

@@ -1,22 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {
-  BreakpointObserver,
-  Breakpoints,
-  BreakpointState
-} from '@angular/cdk/layout';
-import {
-  AngularFirestore,
-  AngularFirestoreCollection,
-  AngularFirestoreDocument
-} from '@angular/fire/firestore';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
-import { AuthService, User } from '../../core/auth.service';
-import { callNgModuleLifecycle } from '@angular/core/src/view/ng_module';
-import { pipe } from '@angular/core/src/render3/pipe';
+import { AuthService } from '../../core/auth.service';
 import { Router } from '@angular/router';
-import { error } from '@angular/compiler/src/util';
 import { MatMenuTrigger } from '@angular/material';
 
 @Component({

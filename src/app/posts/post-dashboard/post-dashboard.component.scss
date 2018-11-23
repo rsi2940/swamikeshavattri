@@ -1,7 +1,7 @@
 section {
   width: 90vw;
   margin: 2em auto;
-  position: relative;
+  // position: relative;
   z-index: -1;
 
   @media screen and (min-width: 48em) {
@@ -12,7 +12,7 @@ section {
   }
 }
 .container {
-  position: absolute;
+  // position: absolute;
   margin: 2em auto;
   width: 100%;
 }

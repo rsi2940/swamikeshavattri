@@ -16,6 +16,6 @@ export class BioComponent implements OnInit {
   ngOnInit() {
     this.posts$ = this.postService.getLatest3Posts();
     // console.log(this);
-    console.log('Y = ' + window.scrollY);
+    // console.log('Y = ' + window.scrollY);
   }
 }
