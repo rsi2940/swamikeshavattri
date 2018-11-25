@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BioComponent } from './bio/bio.component';
 import { VideosComponent } from './videos/videos.component';
 import { FeedbackComponent } from '../shared/feedback/feedback.component';
+import { PrivacyPolicyComponent } from '../shared/privacy-policy/privacy-policy.component';
 
 const routes: Routes = [
   { path: '', component: BioComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   // { path: '', redirectTo: '/blog', pathMatch: 'full' },
+  { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: '**', redirectTo: '' }
 ];
 @NgModule({
@@ -37,7 +39,8 @@ const routes: Routes = [
     PostListComponent,
     BioComponent,
     VideosComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    PrivacyPolicyComponent
   ],
   providers: [PostService, AuthGuard]
 })

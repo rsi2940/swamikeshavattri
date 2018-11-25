@@ -16,12 +16,16 @@ export class PostService {
   postDoc: AngularFirestoreDocument<Post>;
 
   constructor(private afs: AngularFirestore) {
-    this.postCollection = this.afs.collection('posts', ref =>
-      ref.orderBy('published', 'desc')
-    );
-    this.latest3PostCollection = this.afs.collection('posts', ref =>
-      ref.orderBy('published', 'desc').limit(3)
-    );
+    try {
+      this.postCollection = this.afs.collection('posts', ref =>
+        ref.orderBy('published', 'desc')
+      );
+      this.latest3PostCollection = this.afs.collection('posts', ref =>
+        ref.orderBy('published', 'desc').limit(3)
+      );
+    } catch (err) {
+      console.log('error connecting database, try being online, it may help');
+    }
   }
   getLatest3Posts() {
     return this.latest3PostCollection.snapshotChanges().pipe(

@@ -19,8 +19,8 @@ $ngBlog-app-theme: mat-light-theme(
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($ngBlog-app-theme);
-// theme.scss file in node modules folder should include these following codes
-// mat my color
+// // theme.scss file in node modules folder should include these following codes
+// // mat my color
 // $mat-my-color: (
 // 50: #7E1000,
 // 100: #7E1106,
@@ -53,7 +53,7 @@ $ngBlog-app-theme: mat-light-theme(
 // A700: $light-primary-text,
 // )
 // );
-// mat accent color
+// // mat accent color
 // $mat-accent-color: (
 // 50: #339800,
 // 100: #339811,
@@ -68,7 +68,7 @@ $ngBlog-app-theme: mat-light-theme(
 // A100: #339955,
 // A200: #339933,
 // A400: #339966,
-// A700: #33cc99,
+// A700: #096e4c,
 // contrast: (
 // 50: $dark-primary-text,
 // 100: $dark-primary-text,

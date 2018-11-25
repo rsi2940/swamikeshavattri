@@ -62,8 +62,12 @@ export class FeedbackComponent implements OnInit {
     await this.auth.user.subscribe(value => (this.currentUser = value));
   }
   submitForm() {
+    let presentUser = 'not signed in';
+    if (this.currentUser) {
+      presentUser = this.currentUser.displayName || this.currentUser.email;
+    }
     const data = {
-      loggedInUser: this.currentUser.displayName || this.currentUser.email,
+      loggedInUser: presentUser,
       fullName: this.name.value,
       email: this.email.value,
       phone: this.phone.value,
