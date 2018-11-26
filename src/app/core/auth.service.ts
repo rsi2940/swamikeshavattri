@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export interface User {
   uid: string;
   email: string;
-  photoURL: string;
+  photoURL?: string;
   displayName: string;
   allowWrite?: boolean;
 }

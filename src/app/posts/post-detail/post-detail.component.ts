@@ -11,6 +11,14 @@ import { AuthService } from '../../core/auth.service';
 export class PostDetailComponent implements OnInit {
   post: Post;
   editing = false;
+  dataHref = '';
+  shareHref = '';
+  dataHrefStart = 'https://swamikeshavattri.com/blog/';
+  shareHrefStart =
+    'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fswamikeshavattri.com%2Fblog%2F';
+  shareHrefEnd = '&amp;src=sdkpreparse';
+
+  // shareHrefId = 'aeeV878fhEbQmxFMLH7j';
 
   //  content: {
   //   para1: '';
@@ -32,10 +40,13 @@ export class PostDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getPost();
-   // console.log(this.auth.currentUserId);
+    // console.log(this.auth.currentUserId);
   }
   getPost() {
     const id = this.route.snapshot.paramMap.get('id');
+    this.shareHref = this.shareHrefStart + id + this.shareHrefEnd;
+    this.dataHref = this.dataHrefStart + id;
+    // console.log(this.shareHref);
     return this.postService
       .getPostData(id)
       .subscribe(data => (this.post = data));

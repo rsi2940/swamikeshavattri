@@ -1,38 +1,32 @@
-// main {
-//   // position: relative;
-// }
-
 section.banner {
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
   text-align: center;
   width: 100%;
   min-height: 90vh;
   overflow: hidden;
   background-color: #f2f2f2;
-  // background: url('../../../assets/bgImg/radhaKrishnaGopaljiOptimized.jpg') center top;
-  // background-size: cover;
   p {
     color: #404041;
+    margin: 0;
   }
   .top {
     display: grid;
     justify-content: center;
     align-items: center;
+    padding-top: 1.5em;
     .top-p {
       text-align: center;
-      padding-top: 1.5em;
-      // margin-left: -1.5em;
     }
   }
   .imageWrapper {
     display: grid;
-    grid-auto-flow: column;
+    grid-auto-flow: row;
     justify-content: center;
     align-items: center;
-    grid-gap: 1em;
+    grid-gap: 0.5em;
+    padding: 0.5em 0;
+    > * {
+      justify-self: center;
+    }
     .image-p {
       justify-self: center;
       text-align: center;
@@ -46,30 +40,35 @@ section.banner {
         width: 250px;
       }
     }
+    @media screen and (min-width: 40em) {
+      grid-auto-flow: column;
+      grid-gap: 1em;
+    }
   }
   .headerWrapper {
     padding-top: 2em;
-
-    @media screen and (min-width: 40em) {
-      display: grid;
-      grid-auto-flow: column;
-      grid-template-columns: 1fr 1fr 1fr;
-    }
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 0.5em 1fr 0.5em;
     .middle {
       pre {
-        text-align: left;
-        margin-left: -2em;
+        text-align: center;
+        // margin-left: -2em;
         font-size: 1em;
         line-height: 1.4;
+        white-space: pre-line;
+        padding-bottom: 1.1em;
         @media screen and (min-width: 40em) {
           margin-left: 0;
           text-align: left;
           font-size: 1.5em;
           line-height: 1.6;
+          white-space: pre;
+          padding-bottom: 0;
         }
       }
       pre.descriptionText {
-        margin-left: -4em;
+        // margin-left: -4em;
         padding-top: 2em;
       }
     }
