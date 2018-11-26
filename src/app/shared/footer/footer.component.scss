@@ -36,6 +36,7 @@ footer {
   grid-area: copyright;
   justify-self: start;
   text-align: center;
+  width: 100%;
 
   @media screen and (min-width: 40em) {
     justify-self: center;
@@ -69,7 +70,6 @@ footer {
 }
 .leftover {
   grid-area: leftover;
-  justify-self: start;
   text-align: center;
   display: grid;
   grid-auto-flow: column;
@@ -79,12 +79,22 @@ footer {
   }
   @media screen and (min-width: 40em) {
     grid-auto-flow: row;
-    justify-self: center;
   }
 
   p {
     margin-bottom: 0;
     color: #ebebeb;
     font-size: 0.9em;
+    width: 100%;
+    text-align: right;
+    @media screen and (min-width: 40em) {
+      text-align: center;
+    }
+  }
+  div.fb-share-button {
+    justify-self: start;
+    @media screen and (min-width: 40em) {
+      justify-self: center;
+    }
   }
 }
