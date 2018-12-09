@@ -16,14 +16,8 @@ export class PostListComponent implements OnInit {
 
   ngOnInit() {
     this.meta.updateTitle();
-    console.log('get ogurl');
 
     this.meta.updateFacebookMetaInfo();
-
-    // (this.meta.ogUrl = ''),
-    // (this.meta.ogType = ''),
-    // (this.meta.ogTitle = ''),
-    // (this.meta.ogDescription = '')
 
     this.posts$ = this.postService.getPosts();
     // console.log(this);

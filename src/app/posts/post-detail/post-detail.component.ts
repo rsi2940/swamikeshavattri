@@ -4,6 +4,8 @@ import { PostService } from '../post.service';
 import { Post } from '../post';
 import { AuthService } from '../../core/auth.service';
 import { MetaService } from 'src/app/shared/seo.service';
+import { DomSanitizer } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-post-detail',
   templateUrl: './post-detail.component.html',
@@ -16,16 +18,10 @@ export class PostDetailComponent implements OnInit {
   shareHref = '';
   dataHrefStart = 'https://swamikeshavattri.com/blog/';
   shareHrefStart =
-    'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fswamikeshavattri.com%2Fblog%2F';
-  shareHrefEnd = '&amp;src=sdkpreparse';
+    'https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fswamikeshavattri.com%2Fblog%2F';
+  shareHrefEnd =
+    '&layout=button_count&size=small&mobile_iframe=true&appId=1980905868663693&width=69&height=20';
 
-  // shareHrefId = 'aeeV878fhEbQmxFMLH7j';
-
-  //  content: {
-  //   para1: '';
-  //   para2: '';
-  //   para3: '';
-  // };
   para1 = '';
   para2 = '';
   para3 = '';
@@ -37,7 +33,8 @@ export class PostDetailComponent implements OnInit {
     private router: Router,
     private postService: PostService,
     public auth: AuthService,
-    private meta: MetaService
+    private meta: MetaService,
+    public sanitizer: DomSanitizer
   ) {}
 
   ngOnInit() {
@@ -51,7 +48,6 @@ export class PostDetailComponent implements OnInit {
     this.dataHref = this.dataHrefStart + id;
     // console.log(this.shareHref);
     return this.postService.getPostData(id).subscribe(data => {
-      console.log('ogurl' + id);
       this.meta.updateFacebookMetaInfo(
         'https://swamikeshavattri.com/blog/' + id,
         'article',

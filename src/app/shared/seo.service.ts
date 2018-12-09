@@ -47,10 +47,8 @@ export class MetaService {
     });
     // end if page refreshed
     if (!ogUrl) {
-      console.log('print ogurl' + ogUrl);
       this.getRouterEvent().subscribe(event => {
         this.meta.updateTag({ name: 'og:url', content: event['ogUrl'] });
-        // this.titleService.setTitle('स्वामी केशव अत्रि | ' + event['title']);
       });
     } else {
       this.meta.updateTag({ name: 'og:url', content: ogUrl });
@@ -58,7 +56,6 @@ export class MetaService {
     if (!ogType) {
       this.getRouterEvent().subscribe(event => {
         this.meta.updateTag({ name: 'og:type', content: event['ogType'] });
-        // this.titleService.setTitle('स्वामी केशव अत्रि | ' + event['title']);
       });
     } else {
       this.meta.updateTag({ name: 'og:type', content: ogType });
@@ -66,7 +63,6 @@ export class MetaService {
     if (!ogTitle) {
       this.getRouterEvent().subscribe(event => {
         this.meta.updateTag({ name: 'og:title', content: event['ogTitle'] });
-        // this.titleService.setTitle('स्वामी केशव अत्रि | ' + event['title']);
       });
     } else {
       this.meta.updateTag({ name: 'og:title', content: ogTitle });
@@ -77,7 +73,6 @@ export class MetaService {
           name: 'og:description',
           content: event['ogDescription']
         });
-        // this.titleService.setTitle('स्वामी केशव अत्रि | ' + event['title']);
       });
     } else {
       this.meta.updateTag({ name: 'og:description', content: ogDescription });
@@ -89,7 +84,6 @@ export class MetaService {
   }
 
   updateTitle(title?: string) {
-    console.log('in seo service (title)');
     if (!title) {
       this.getRouterEvent().subscribe(event => {
         this.titleService.setTitle('स्वामी केशव अत्रि | ' + event['title']);

@@ -22,18 +22,17 @@
           </div>
         </mat-card-content>
         <mat-card-actions align="end">
-          <div
-            class="fb-share-button"
-            [attr.data-href]="dataHref"
-            data-layout="button_count"
-            data-size="small"
-            data-mobile-iframe="true"
-          >
-            <a target="_blank" [href]="shareHref" class="fb-xfbml-parse-ignore"
-              ><mat-icon color="accent">share</mat-icon> फेसबुकमा सेयर
-              गर्नुहोस्</a
-            >
-          </div>
+          <iframe
+            title="facebook share button"
+            [src]="sanitizer.bypassSecurityTrustResourceUrl(shareHref)"
+            width="69"
+            height="20"
+            style="border:none;overflow:hidden"
+            scrolling="no"
+            frameborder="0"
+            allowTransparency="true"
+            allow="encrypted-media"
+          ></iframe>
         </mat-card-actions>
         <ng-container *ngIf="(auth.user | async) as user">
           <mat-card-actions align="end" *ngIf="user.uid === post.authorId">
@@ -59,7 +58,7 @@
     </div>
   </section>
 
-  <section class="postDetail" [hidden]="!editing">
+  <section class="postDetail" [hidden]="!editing && auth.user">
     <div class="wrapper">
       <mat-card class="card">
         <mat-card-header class="header">
