@@ -1,5 +1,5 @@
 section {
-  width: 90vw;
+  width: 98%;
   margin: 2em auto;
   // position: relative;
   z-index: -1;
@@ -9,6 +9,10 @@ section {
   }
   @media screen and (min-width: 64em) {
     width: 700px;
+  }
+  @media screen and (min-width: 1441px) {
+    width: 1024px;
+    font-size: 20px;
   }
 }
 .container {
@@ -24,6 +28,9 @@ section {
 .mat-form-field input,
 .mat-form-field textarea {
   font-size: 20px;
+  @media screen and (min-width: 1441px) {
+    font-size: 25px;
+  }
 }
 .mat-form-field {
   line-height: 1.5;

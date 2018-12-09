@@ -53,36 +53,52 @@
   position: absolute;
   bottom: 10%;
 }
-.header-nav-list .top-nav-button {
-  padding: 0 0.2em;
-  cursor: pointer;
-  // background: rgba($color: #000000, $alpha: 0.5);
+.header-nav-list {
+  &.top-nav-button {
+    padding: 0 0.2em;
+    cursor: pointer;
+    // background: rgba($color: #000000, $alpha: 0.5);
+  }
 }
 .collection i {
   display: inline-block;
   padding-left: 0.25em;
   margin-top: -0.25em;
 }
-mat-nav-list.header-nav-list a:hover {
-  color: #33cc99;
-}
-mat-nav-list.sidebar-nav-list {
-  transition: all 2s ease-in-out;
-  [mat-list-item]:hover {
+
+mat-nav-list {
+  a {
+    margin: 0 10px;
+    @media screen and (min-width: 1441px) {
+      margin: 0 15px;
+      font-size: 25px !important;
+    }
+  }
+  &.header-nav-list a:hover {
     color: #33cc99;
-    position: relative;
-    //left: 2%;
+  }
+  &.sidebar-nav-list {
+    transition: all 2s ease-in-out;
+    [mat-list-item]:hover {
+      color: #33cc99;
+      position: relative;
+      //left: 2%;
+    }
+  }
+  &.sidebar-nav-list {
+    .router-link-active {
+      color: #33cc99;
+      position: relative;
+      left: 2%;
+    }
   }
 }
+
 // routerlink active style
 .router-link-active {
   color: #33cc99;
 }
-mat-nav-list.sidebar-nav-list .router-link-active {
-  color: #33cc99;
-  position: relative;
-  left: 2%;
-}
+mat-nav-list
 // toolbar icon
 .toolbar.toolbar-iconImage {
   display: flex;

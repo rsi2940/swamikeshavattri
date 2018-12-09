@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PostService } from '../post.service';
 import { Post } from '../post';
 import { AuthService } from '../../core/auth.service';
+import { MetaService } from 'src/app/shared/seo.service';
 @Component({
   selector: 'app-post-detail',
   templateUrl: './post-detail.component.html',
@@ -35,11 +36,13 @@ export class PostDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private postService: PostService,
-    public auth: AuthService
+    public auth: AuthService,
+    private meta: MetaService
   ) {}
 
   ngOnInit() {
     this.getPost();
+    this.meta.updateTitle();
     // console.log(this.auth.currentUserId);
   }
   getPost() {
@@ -47,9 +50,16 @@ export class PostDetailComponent implements OnInit {
     this.shareHref = this.shareHrefStart + id + this.shareHrefEnd;
     this.dataHref = this.dataHrefStart + id;
     // console.log(this.shareHref);
-    return this.postService
-      .getPostData(id)
-      .subscribe(data => (this.post = data));
+    return this.postService.getPostData(id).subscribe(data => {
+      console.log('ogurl' + id);
+      this.meta.updateFacebookMetaInfo(
+        'https://swamikeshavattri.com/blog/' + id,
+        'article',
+        data.title,
+        data.content.para1
+      );
+      this.post = data;
+    });
   }
   updatePost() {
     const formData = {
