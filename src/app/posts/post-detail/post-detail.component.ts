@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+// import { WINDOW } from '@ng-toolkit/universal';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PostService } from '../post.service';
 import { Post } from '../post';
@@ -16,9 +17,9 @@ export class PostDetailComponent implements OnInit {
   editing = false;
   dataHref = '';
   shareHref = '';
-  dataHrefStart = 'https://swamikeshavattri.com/blog/';
+  dataHrefStart = 'https://www.swamikeshavattri.com/blog/';
   shareHrefStart =
-    'https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fswamikeshavattri.com%2Fblog%2F';
+    'https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fwww.swamikeshavattri.com%2Fblog%2F';
   shareHrefEnd =
     '&layout=button_count&size=small&mobile_iframe=true&appId=1980905868663693&width=69&height=20';
 
@@ -29,6 +30,7 @@ export class PostDetailComponent implements OnInit {
   showPara2 = false;
   showPara3 = false;
   constructor(
+    // @Inject(WINDOW) private window: Window,
     private route: ActivatedRoute,
     private router: Router,
     private postService: PostService,
@@ -49,7 +51,7 @@ export class PostDetailComponent implements OnInit {
     // console.log(this.shareHref);
     return this.postService.getPostData(id).subscribe(data => {
       this.meta.updateFacebookMetaInfo(
-        'https://swamikeshavattri.com/blog/' + id,
+        'https://www.swamikeshavattri.com/blog/' + id,
         'article',
         data.title,
         data.content.para1

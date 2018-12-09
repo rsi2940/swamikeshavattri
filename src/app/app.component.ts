@@ -8,10 +8,24 @@ import { SwUpdate } from '@angular/service-worker';
 })
 export class AppComponent implements OnInit {
   // update = false;
-  constructor(updates: SwUpdate) {
+  constructor(private swUpdate: SwUpdate, updates: SwUpdate) {
     updates.available.subscribe(updateEvent => {
       updates.activateUpdate().then(() => document.location.reload());
     });
   }
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.swUpdate.isEnabled) {
+      this.swUpdate.available.subscribe(evt => {
+        console.log('service worker updated');
+      });
+      this.swUpdate
+        .checkForUpdate()
+        .then(() => {
+          // noop
+        })
+        .catch(err => {
+          console.error('error when checking for update', err);
+        });
+    }
+  }
 }

@@ -19,7 +19,7 @@ const routes: Routes = [
     data: {
       title: 'स्वामी केशव अत्रि',
       description: 'स्वामी केशव अत्रि द्वारा केहि अध्यात्म चिन्तन',
-      ogUrl: 'https://swamikeshavattri.com/',
+      ogUrl: 'https://www.swamikeshavattri.com/',
       ogTitle: `श्री योगिराजेत्युपनामधन्यानन्तश्रीविभूषणेनालंकृत
     श्री कमलनयनाचार्य स्वामी पादानां
     श्री मुखोल्लासार्थमेतत् सञ्जाल पृष्ठम् ।।`,
@@ -33,7 +33,7 @@ const routes: Routes = [
     data: {
       title: 'लेखहरु',
       description: 'लेखहरु',
-      ogUrl: 'https://swamikeshavattri.com/',
+      ogUrl: 'https://www.swamikeshavattri.com/',
       ogTitle: `श्री योगिराजेत्युपनामधन्यानन्तश्रीविभूषणेनालंकृत
       श्री कमलनयनाचार्य स्वामी पादानां
       श्री मुखोल्लासार्थमेतत् सञ्जाल पृष्ठम् ।।`,
@@ -47,7 +47,7 @@ const routes: Routes = [
     data: {
       title: 'भिडियोहरु',
       description: 'भिडियोहरु',
-      ogUrl: 'https://swamikeshavattri.com/',
+      ogUrl: 'https://www.swamikeshavattri.com/',
       ogTitle: `श्री योगिराजेत्युपनामधन्यानन्तश्रीविभूषणेनालंकृत
     श्री कमलनयनाचार्य स्वामी पादानां
     श्री मुखोल्लासार्थमेतत् सञ्जाल पृष्ठम् ।।`,
@@ -60,7 +60,8 @@ const routes: Routes = [
     component: PostDetailComponent,
     data: {
       title: 'लेख',
-      description: 'लेख'
+      description: 'लेख',
+      ogType: 'article'
     }
   },
   {
@@ -70,7 +71,7 @@ const routes: Routes = [
     data: {
       title: 'Dashboard',
       description: 'Admin Dashboard',
-      ogUrl: 'https://swamikeshavattri.com/',
+      ogUrl: 'https://www.swamikeshavattri.com/',
       ogTitle: `श्री योगिराजेत्युपनामधन्यानन्तश्रीविभूषणेनालंकृत
     श्री कमलनयनाचार्य स्वामी पादानां
     श्री मुखोल्लासार्थमेतत् सञ्जाल पृष्ठम् ।।`,
@@ -85,7 +86,7 @@ const routes: Routes = [
     data: {
       title: 'Privacy Policy',
       description: 'Privacy Policy',
-      ogUrl: 'https://swamikeshavattri.com/',
+      ogUrl: 'https://www.swamikeshavattri.com/',
       ogTitle: `श्री योगिराजेत्युपनामधन्यानन्तश्रीविभूषणेनालंकृत
   श्री कमलनयनाचार्य स्वामी पादानां
   श्री मुखोल्लासार्थमेतत् सञ्जाल पृष्ठम् ।।`,

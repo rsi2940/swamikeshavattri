@@ -79,7 +79,7 @@ export class MetaService {
     }
     this.meta.updateTag({
       name: 'og:image',
-      content: 'https://swamikeshavattri.com/assets/icons/icon-512x512.png'
+      content: 'https://www.swamikeshavattri.com/assets/icons/icon-512x512.png'
     });
   }
 

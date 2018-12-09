@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+// import { WINDOW } from '@ng-toolkit/universal';
+import { Component, OnInit, Inject } from '@angular/core';
 import { AuthService } from '../../core/auth.service';
 import { PostService } from '../post.service';
 
